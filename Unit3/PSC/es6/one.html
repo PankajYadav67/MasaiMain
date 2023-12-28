@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES-6</title>
+</head>
+<body>
+
+<script>
+ /*
+    let myObj = {
+        i : 10 ,
+        b : (num) => {
+            console.log(this.i,this,num);
+        },
+
+        c : function (){
+            
+            console.log(this.i,this);
+        
+        }
+
+    }
+    //  myObj.c() ;
+    myObj.b(10) ;
+ 
+
+ const user = {
+    name : 'raj',
+    age : 26,
+    city : 'pune'
+ }
+
+ let  {name,age,city} =user
+ console.log("name:",name ,"age:",age,"city:",city) ;
+ console.log("name:",name ,"age:",age,"city:",city) ;
+
+
+ */
+
+ fetch("https://reqres.in/api/user/2")
+ .then((res)=>{
+    return res.json().then((res)=>{
+        let data = res.data  ;
+
+        let id = data.id ;
+
+        let name = data.name ;
+
+        let pantone_value = data.pantone_value ;
+        console.log(id,name,pantone_value) ;
+
+        
+       
+
+    })
+ })
+
+
+
+</script>
+
+    
+</body>
+</html>

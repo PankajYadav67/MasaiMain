@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        #container{
+            display: flex;
+            justify-content: space-around;
+        }
+        #Register_form{
+            font: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <h2>Register Here</h2>
+            <form id="registerForm">
+                <label for="r_name">Name :-</label>
+                <input type="text" id="r_name" name="r_name" placeholder="Mahesh Kumar"/>
+                <br/>
+                <br/>
+
+                <label for="r_email">Email ID :-</label>
+                <input type="email" id="r_email" name="r_email" placeholder="Example@gmail.com"/>
+                <br/>
+                <br/>
+
+                <label for="r_username">UserName :-</label>
+                <input type="text" id="r_username" name="r_username" placeholder="Enter A UserName" />
+                <br/>
+                <br/>
+
+                <label for="r_password">Password :-</label>
+                <input type="password" id="r_password" name="r_password" placeholder="Enter A Strong Password" />
+                <br/>
+                <br/>
+
+                <label for="r_mobilenumber">Mobile Number :-</label>
+                <input type="number" id="r_mobilenumber" name="r_mobilenumber" placeholder="9876543210"/>
+                <br/>
+                <br/>
+                
+                <label for="r_description">Description :-</label>
+                <textarea name="r_description" name="r_description" id="r_description" >enter Description here.</textarea>
+                <br/>
+                <br/>
+
+                <button>SignUp</button>
+            </form>
+        </div>
+        <div>
+            <h2>Login here</h2>
+
+            <form id="loginForm">
+
+                <label for="l_username">UserName :-</label>
+                <input type="text" id="l_username" name="l_username" placeholder="Enter A UserName"/>
+                <br/>
+                <br/>
+
+                <label for="l_password">Password :-</label>
+                <input type="password" id="l_password" name="l_password" placeholder="Enter A Strong Password"/>
+                <br/>
+                <br/>
+
+
+                <button>LogIn</button>
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

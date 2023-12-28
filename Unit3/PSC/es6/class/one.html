@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <script>
+        // function Person (n,a)  {
+        //     this.name = n ;
+        //     this.age = a ;
+        //     this.showName = () => {
+        //         console.log(this.name);
+        //     } ;
+
+        // };
+
+        // const person = {
+        //     x : 'MSD',
+        //     showName : ()=> {
+        //         console.log(this.x) ;
+        //     }
+        // };
+
+        // // var p1 = new Person('raj',52) ;    
+        // // p1.showName();
+
+        // person.showName();
+
+        // class cat {
+        //     constructor(s,l){ //*
+        //         this.species = s; // dynamic
+        //         this.legs = l ; // dynamic 
+        //         this.furs = true ;
+        //     } ;
+        // };
+
+        // class tiger extends cat {
+        //     constructor(s,l){  // *
+        //         super(s,l) ;   // *
+        //         this.speed = "60kmph" ;
+        //         this.eye_color = "brown";
+
+        //     };
+        // };
+
+        // class whiteTiger extends tiger {
+        //     constructor(s,l){
+        //         super(s,l) ;
+        //         this.body_color = "white" ;
+        //     }
+        // }
+
+        // // const tiger1 = new tiger ("mammel",40); //*
+        // // console.log("tiger1:",tiger1)
+
+        // const whiteTiger1 = new whiteTiger ("cat",49);
+        // console.log("whiteTiger1",whiteTiger1);
+
+        class myStack {
+            constructor(){
+                this.length = 0;
+                this.stack = [] ;
+            } ;
+
+            push (...value) {
+
+                value.forEach((el) => {
+                  this.stack.push(el) ;
+                  this.length ++ ;
+                });
+
+                console.log( this.stack) ;
+            } ;
+
+            pop() {
+                this.stack.pop();
+                this.length -- ;
+                console.log( this.stack) ;
+            };
+
+        }
+
+        const stack = new myStack();
+        // stack.push(2);
+        
+        // stack.push(3);
+
+        stack.push(2,3,4,4)
+         // console.log("stack:",stack);
+
+
+
+    </script>
+    
+</body>
+</html>

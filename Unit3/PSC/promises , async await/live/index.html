@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let passexam = false ;
+        let myProm = new Promise (function (resolve,reject){
+            if(passexam){
+                resolve('bike') ;
+            }
+            else {
+              reject("paragon") ;
+            }
+
+        }) ;
+
+
+        //success
+        // myProm.then(function(response){
+        //     console.log("response:",response) ;
+        // }) ;
+
+
+        // failure
+        myProm.catch(function(error){
+            console.log("error:" , error) ;
+        }) ;
+
+
+    </script>
+</body>
+</html>

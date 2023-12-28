@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import And Export </title>
+    
+    <style>
+        #navbar {
+            display: flex;
+            justify-content: space-between; 
+            border: solid 1px black;
+            padding-left: 4%;
+            padding-right: 4%;
+        }
+        #options{
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+    </style>
+
+    
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <script type="module">
+
+        // what is a module ? --> more flexiable and more powerful js file
+        
+        import navbar from "./Components/navbar.js" ;
+
+        // import {getData,append} from "./scripts/fetchAppend.js" ;
+        
+
+        let header = document.getElementById('header') ;
+        header.innerHTML = navbar();
+
+     
+    </script>
+</body>
+</html>

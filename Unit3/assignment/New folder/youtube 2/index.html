@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube APP II</title>
+    <style>
+        #navbar{
+            background-color: aqua;
+            position: fixed;
+            padding: 1%;
+
+            text-align: center;
+            top: 0%;
+            width: 100%;
+            
+            
+        };
+        #navbar button {
+            padding: 0.5%;
+        }
+        #navbar input{
+            width: 20%;
+            margin-right: -10px;
+        }
+
+        #navbar img{
+            position: absolute;
+
+            width: 150px;
+
+            height: 80px;
+            top: 0% ;
+            margin-left: -200px ;
+            
+
+        } ;
+
+        #cont {
+            display: grid;
+            grid-template-columns: repeat(4,20%);
+            gap: 5%;
+            margin-top: 90px;
+            text-align: center;
+        }
+        #cont div{
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <img src="https://www.freeiconspng.com/thumbs/youtube-logo-png/youtube-logo-png-transparent-image-5.png" alt="YouTUbe Logo" >
+    
+        
+        <input type="text" id="search"/>
+        <button onclick="trading()" id="show">Search</button>
+        
+    </div>
+    <div id="search_result"></div>
+
+
+    <script>
+        const search_result = document.getElementById('search_result') ;
+
+        // fetch url --> https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=IN&maxResults=10&key=
+
+        // api url --> AIzaSyA1SObz8hShZvt3UidxWovzLbVoZUh5WOs
+        const trading = async ()=> {
+            try {
+                const searched = document.getElementById('search') ;
+
+                const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&q${searched}&chart=mostPopular&regionCode=IN&maxResults=10&key=AIzaSyA1SObz8hShZvt3UidxWovzLbVoZUh5WOs`)
+                
+                let data = await res.json();
+
+                let video = await data.items ;
+
+                appendthevideos(video) ;
+
+            
+            } 
+            catch (error) 
+            {
+                console.log("ERROR:",error) ;
+            }
+        };
+
+        const appendthevideos = (data) => {
+
+            search_result.innerHTML = null ;
+            try {
+                data.forEach( ( { snippet:{title} , id:{videoID} } ) => {
+                    let div =document.createElement('div');
+
+                    let name = document.createElement('title');
+                    name.innerText= title ;
+
+                    let iframe = document.createElement("iframe") ;
+                    iframe.src =`https://www.youtube.com/embed/${videoID}` ;
+
+                    iframe.height = "80%" ;
+                    iframe.width = "100%" ;
+                    iframe.allow = 'fullscreen' ;
+
+                    div.append(iframe,name) ;
+
+                    search_result.append(div);
+
+                })
+            } 
+            catch (error) 
+            {
+                console.log("ERROR:",error);
+            }
+
+        }
+    </script>
+</body>
+</html>

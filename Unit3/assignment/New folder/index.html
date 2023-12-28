@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>throw dice</title>
+    <style>
+        .dice{
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border: 2px soild black;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px;
+
+        }
+
+        #member-1 {
+            background-color: red;
+        }
+
+        #member-2 {
+            background-color: yellow;
+        }
+
+        #member-3 {
+            background-color: green;
+        }
+
+        #winner {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="dice" id="member-1"> </div>
+
+
+    <div class="dice" id="member-2"> </div>
+
+
+    <div class="dice" id="member-3"></div>
+
+    <button id="roll" > Roll The Dice</button>
+
+    <div id="winner"></div>
+
+    <script>
+        function rollDice(){
+
+            const dice1 = document.getElementById("member-1");
+            const dice2 = document.getElementById("member-2");
+            const dice3 = document.getElementById("member-3");
+            const winnerDiv = document.getElementById("winner");
+
+            // roll tthe dice and get random numbers between 1 to 6 for each member
+
+            const score1 = Math.floor(Math.random()*6)+1 ;
+
+            const score2 = Math.floor(Math.random()*6)+1 ;
+
+            const score3 = Math.floor(Math.random()*6)+1 ;
+
+            //update the dice display
+
+            dice1.textContent = score1 ;
+
+            dice2.textContent = score2 ;
+
+            dice3.textContent = score3 ;
+
+            // determine the winner and update the winnerdiv
+            if(score1 > score2 && score1 > score3)
+            {
+                winnerDiv.textContent ="Member 1 wins !" ;
+                dice1.style.backgroundColor ="green " ;
+                dice2.style.backgroundColor ="red " ;
+                dice3.style.backgroundColor ="red " ;
+            }
+            else if(score2 > score1 && score2 > score3)
+            {
+                winnerDiv.textContent ="Member 2 wins !" ;
+                dice1.style.backgroundColor ="red " ;
+                dice2.style.backgroundColor ="green " ;
+                dice3.style.backgroundColor ="red " ;
+            }
+            else if(score3 > score21&& score3 > score2)
+            {
+                winnerDiv.textContent ="Member 3 wins !" ;
+                dice1.style.backgroundColor ="red " ;
+                dice2.style.backgroundColor ="red " ;
+                dice3.style.backgroundColor ="green " ;
+            }
+            else
+            {
+                winnerDiv.textContent ="It's a Draw!" ;
+                dice1.style.backgroundColor ="blue " ;
+                dice2.style.backgroundColor ="blue " ;
+                dice3.style.backgroundColor ="blue " ;
+            }
+        }
+
+        // Attach tthe rollDice function to the button click event
+        const rollButton = document.getElementById("roll");
+        rollButton.addEventListener("click",rollDice) ;
+
+
+    </script>
+</body>
+</html>

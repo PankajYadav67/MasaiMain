@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <h1>ES6</h1>
+    <script>
+        // constructor functions
+
+        // function person (n,a){
+
+        //     this.name = n ;
+        //     this.age = a ;
+        // }
+
+        // person.prototype.city = 'pune' ;
+
+        // const person1 = new person ('swanand',35);
+        // console.log("person1:",person1) ;
+
+        
+        // es-6 class constructor function
+        class person {
+            constructor(n,a){
+                this.name = n ;
+                this.age = a;
+            }
+            showName (){
+                console.log(this.name)
+            }
+        }
+        const person1 = new person('raj',31) ;
+
+        console.log("person1:",person1) ;
+
+        person1.showName();
+
+        // inheritance in ES-6
+
+        class student extends person {
+            constructor(n,a){
+                super(n,a)
+                this.role = 'student';
+                
+            }
+
+        }
+
+        const person2 = new student("raj",54);
+
+        console.log("person2:",person2)
+
+
+    </script>
+</body>
+</html>

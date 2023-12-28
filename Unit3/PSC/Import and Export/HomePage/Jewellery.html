@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery</title>
+    
+    <link rel="stylesheet" href="./style/main.css">
+
+</head>
+
+<body>
+    
+    <div id="header"></div>
+
+    <div id="data"></div>
+
+    <script type="module">
+
+        // what is a module ? --> more flexiable and more powerful js file
+
+        import navbar from "./Components/navbar.js" ;
+
+        import {getData,append} from "./scripts/fetchAppend.js" ;
+
+        let header = document.getElementById('header') ;
+
+        let parent = document.getElementById('data') ;
+        header.innerHTML = navbar();
+
+        let response = await getData(`https://fakestoreapi.com/products/category/jewelery`)  ;
+        console.log("response:",response);
+
+        append(response,parent) ;
+        
+    </script>
+</body>
+</html>

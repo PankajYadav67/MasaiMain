@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #search_result {
+            display: grid;
+            grid-template-columns: repeat(4,20%);
+            grid-gap: 5%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Youtube </h1>
+    <input type="text" id="search"/>
+    <button onclick="searchVideos()">search</button>
+
+    <div id="search_result"></div>
+ 
+ 
+    <script>
+
+
+         const search_result_div = document.getElementById("search_result");
+
+         // fetch url -->https://youtube.googleapis.com/youtube/v3/search?part=snippat&q=football&key=[YOUR_API_KEY] 
+
+
+         // api --> AIzaSyA1SObz8hShZvt3UidxWovzLbVoZUh5WOs
+
+         const searchVideos = async () => {
+            
+            try 
+            {
+                let inp = document.getElementById("search").value ;
+                
+
+                let res = await fetch(`
+                https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${inp}&key=AIzaSyA1SObz8hShZvt3UidxWovzLbVoZUh5WOs&maxResults=10`) ;
+            
+                let data  = await res.json() ; //await is important *** //part = snippet
+
+                let videos = await data.items ;
+
+               // console.log("videos:",videos)
+
+               appendvideos(videos) ; //param is video --> Export
+
+               // return video ; 
+
+                
+                //possible mistake-->
+
+                // async and await not in pair
+                //https
+                // res.json
+                //seperate param using &
+                //wrong destination (fetch url) --> 404 error -->spelling mistake
+                //input will be dynamic 
+                // spelling mistake in general
+
+                // console.log("data:",data);
+            } 
+            catch (error) 
+            {
+                console.log("error:",error) ;
+            } 
+        } ;
+
+
+        const appendvideos = (data) => { // param com' in video --> data (import)
+
+            search_result_div.innerHTML = null ;
+            try {
+
+                data.forEach(({snippet : {title},id : {videoID} })=>{
+
+                 let div =document.createElement('div') ;
+
+                 let name = document.createElement('p') ;
+                 name.innerText = title  ; // 
+
+                 let iframe = document.createElement("iframe") ;
+
+                 iframe.src =`https://www.youtube.com/embed/${videoID}` ;
+
+                  iframe.height = "80%" ;
+
+                 iframe.width = "100%" ;
+
+                 iframe.allow = 'fullscreen' ;
+
+                 div.append(iframe,name) ;
+
+                 search_result_div.append(div) ;
+
+                }) ;
+
+            } 
+            catch (error) 
+            {
+                console.log("error:",error)
+            }
+                
+        };
+
+     // emded --> add something
+ 
+     // i want to watch emded video
+ 
+     // emded urrl --> https://www.youtube.com/embed/P98AjuDZY-A?si=mnTsIfVhGY41cvsI
+
+
+
+    </script>
+    
+</body>
+</html>

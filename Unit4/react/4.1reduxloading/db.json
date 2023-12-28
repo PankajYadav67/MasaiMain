@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "b06f18b2-0a54-48e4-ae8e-c11a325b2b94",
+      "title": "learn react",
+      "status": false
+    },
+    {
+      "id": "2140cbfe-e889-4f4c-a225-4451a6b1199c",
+      "title": "learn react",
+      "status": false
+    },
+    {
+      "id": "0985d365-50f1-4117-adb3-d30ca4afbf44",
+      "title": "njgdfj",
+      "status": false
+    }
+  ]
+}

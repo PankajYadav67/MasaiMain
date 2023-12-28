@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/main.css"/>
+</head>
+<body>
+    <div id="navbar"></div>
+    <div id="results"></div>
+</body>
+</html>
+
+<script type="module" >
+
+    import {header} from "./components/header.js" ;
+    
+    let navbar = document.getElementById("navbar") ;
+
+    navbar.innerHTML = header() ;
+
+    //https://api.github.com/users/hkirat/repos
+
+    let input_box = document.getElementById("search-input") ;
+
+    input_box.addEventListener("keypress",() => {
+
+        getData(event);
+
+    });
+
+    let img = document.getElementById('profile-img') ;
+
+    const getData = async (e) =>{
+
+        try { 
+
+            if(e.code === 'Enter') {
+                let input = input_box.value ;
+
+                let res = await fetch(`https://api.github.com/users/${input}/repos`) ;
+                let data = await res.json() ;
+                 
+                img.src = data[0].owner.avatar_url
+               
+                // return data ;
+
+                append(data);
+               // console.log("data",data);
+
+            } ;   
+        } 
+        catch (error) 
+        {
+            console.log("ERROR:" ,error) ;
+        }
+
+    };
+
+    const append = (data) => {
+
+        results.innerHTML = null ;
+
+        data.forEach(function (el) {
+
+            let div = document.createElement('div') ;
+
+            let h3 =  document.createElement('h3') ;
+            h3.innerText = el.fullname ;
+
+            // let pic = document.createElement('p') ;
+           // pic.innerText = el.owner.avatar_url ;
+
+            div.append(pic,h3) ; 
+
+            results.append(div);
+
+
+        });
+    
+    };
+
+
+
+</script>

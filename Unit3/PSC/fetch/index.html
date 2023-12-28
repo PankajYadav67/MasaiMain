@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+        display: grid;
+        grid-template-columns: repeat(4,25%);
+        grid-gap: 10px;
+
+        }
+        price{
+            border: 2px;
+            border-radius:  100px;
+        }
+        img{
+            width : 100px ;
+            border: solid 1px black;
+        } 
+        #container div{
+            border: solid 2px black;
+            border-radius: 10px;
+        } 
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <script>
+
+
+        // let x = fetch() ;
+        // console.log("fetch:",fetch);
+
+
+        
+        // // 1 method
+
+        
+      // let url = 'https://fakestoreapi.com/products' ;
+      //  let myPromise = fetch(url) ;
+
+
+
+        // myPromise.then(function(res){
+        //     // collect the stream in one 
+        //     return res.json() ;
+            
+        // }) 
+        //  .then(function(res){
+            
+        //     console.log("res:",res);
+        // }) ;
+
+        // 2 method
+
+       
+        var data ;
+        async function  MyPromise() {
+          try{
+            let res = await fetch('https://fakestoreapi.com/products')
+           let data = await res.json() ;
+           appendProducts(data) ;
+           console.log("data:",data) ;
+
+          }
+          catch (error)
+          {
+            console.log("error:",error);
+
+          }
+    
+        }
+        MyPromise() ;
+
+        let container = document.getElementById('container') ;
+        
+
+        function appendProducts(data) {
+
+
+            data.forEach(function(el){
+            let div = document.createElement('div' ) ;
+            
+            let img = document.createElement('img');
+            img.src =el.image ;
+
+            let title = document.createElement("p") ;
+            title.innerText = el.title;
+
+            let desc = document.createElement('p') ;
+            desc.innerText = el.description ;
+
+            let price = document.createElement('price') ;
+            price.innerText = el.price ;
+     
+            div.append(img,title,price,desc) ;
+
+            container.append(div) ;
+
+            })
+        }
+
+
+
+    
+
+    </script>
+</body>
+</html>

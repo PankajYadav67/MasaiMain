@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permutation</title>
+</head>
+<body>
+    <script>
+        // sudo code 
+
+        
+        const gp = (arr,index) => {
+            if(index ==arr.length ){
+                console.log(arr);
+                return ;
+            }
+
+            for(let i = index ; i <arr.length ; i++)
+            {
+                swap(arr,i,index) ;
+                gp(arr,index+1) ;
+                swap(arr,i,index) ;
+            };
+            //input --> arr = [1,2,3] ; index = 0 ; gp(arr,0) ;
+        }
+    </script>
+</body>
+</html>

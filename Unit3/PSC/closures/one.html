@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closures</title>
+    <style>
+        input{
+            width: 400px ;
+        }
+        #movies {
+            height: 400px;
+            width: 400px;
+            border: solid 1px black;
+            border-top: none;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+
+    <input oninput="searchMovie()" type="text" id="query"/>
+    <div id="movies"></div>
+
+
+  <script>
+
+
+    async function searchMovie() {
+
+        try {
+         let input = document.getElementById("query").value  ;
+         // console.log("input:",input) ;
+         // 4ac9e285 <-- api id
+
+         let res = await fetch (`https://www.omdbapi.com/?apikey=4ac9e285&s=${input}`) ;
+
+         let data = await res.json() ;
+
+          appendmovies(data.Search) ; // array_of_movies // link
+          
+        }
+    
+        catch (error) {
+
+        console.log("error:",error) ;
+        }   
+
+        function appendmovies (data) {
+
+            movies.innerHTML = null ; // optimaization
+
+            if(data === undefined) // optimaization // if it shows undefined 
+            {
+                return false ;
+            }
+
+            data.forEach(function(el){
+            
+                let p = document.createElement("p") ;
+                p.innerText = el.Title ;
+
+                
+                // let q = document.createElement("q") ;
+                // p.innerText = el.Type ;
+
+                // let r = document.createElement("r") ;
+                // p.innerText = el.Year ;
+
+                // let s = document.createElement("s") ;
+                // p.innerText = el.imdbID ;
+
+                movies.append(p) ;  // link
+
+
+             
+            })
+
+            
+        }
+
+
+
+    } 
+
+
+  </script>
+
+</body>
+</html>

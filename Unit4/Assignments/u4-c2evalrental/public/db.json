@@ -1,0 +1,95 @@
+{
+  "houses": [
+    {
+      "name": "Gabriellia",
+      "ownersName": "Gabriellia Lowndes",
+      "id": 1,
+      "address": "Room 1444",
+      "areaCode": "Coutada",
+      "rentPrice": "$554.86",
+      "image": "xyz.jpg",
+      "availableFor": "married"
+    },
+    {
+      "name": "Olive",
+      "ownersName": "Olive Renish",
+      "id": 2,
+      "address": "Apt 66",
+      "areaCode": "Glondong",
+      "rentPrice": "$481.82"
+    },
+    {
+      "name": "Toby",
+      "ownersName": "Toby Livingston",
+      "id": 3,
+      "address": "Room 1267",
+      "areaCode": "Yangwei",
+      "rentPrice": "$916.21"
+    },
+    {
+      "name": "Ceciley",
+      "ownersName": "Ceciley Shorbrook",
+      "id": 4,
+      "address": "Room 1735",
+      "areaCode": "Darungan",
+      "rentPrice": "$885.50"
+    },
+    {
+      "name": "Jyoti",
+      "ownersName": "Jyoti Vella",
+      "id": 5,
+      "address": "Apt 1913",
+      "areaCode": "Taocheng",
+      "rentPrice": "$843.61"
+    },
+    {
+      "name": "Suzie",
+      "ownersName": "Suzie Ranstead",
+      "id": 6,
+      "address": "Room 153",
+      "areaCode": "Woro",
+      "rentPrice": "$878.48"
+    },
+    {
+      "name": "Lyndsay",
+      "ownersName": "Lyndsay Cheatle",
+      "id": 7,
+      "address": "17th Floor",
+      "areaCode": "Malusay",
+      "rentPrice": "$619.09"
+    },
+    {
+      "name": "Ilaire",
+      "ownersName": "Ilaire Galway",
+      "id": 8,
+      "address": "PO Box 84675",
+      "areaCode": "Xinqiao",
+      "rentPrice": "$878.46"
+    },
+    {
+      "name": "Pippo",
+      "ownersName": "Pippo Wharton",
+      "id": 9,
+      "address": "Suite 6",
+      "areaCode": "Mandala",
+      "rentPrice": "$500.78"
+    },
+    {
+      "name": "Cornie",
+      "ownersName": "Cornie Breeze",
+      "id": 10,
+      "address": "20th Floor",
+      "areaCode": "Sarimukti Kaler",
+      "rentPrice": "$624.91"
+    },
+
+    {
+      "name": "pankaj",
+      "ownersName": "PankajKumar Yadav",
+      "id": "12",
+      "address": "Kalyan",
+      "areaCode": "1040",
+      "tenant": true
+    }
+  ]
+}

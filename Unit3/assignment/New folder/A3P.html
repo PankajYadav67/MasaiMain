@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amar Akbar Anthony Problem</title>
+</head>
+<body>
+    <script>
+        // define an object for amar
+        const amar =  {
+            name : "Amar",
+            profession : "Singer",
+            location : "Goa",
+            sing : function(){
+                console.log(`${this.name} is singing beautifully in ${this.location}`) ;
+            }
+        }
+        // define an object for akbar
+        const akbar =  {
+            name : "Akbar",
+            profession : "chef",
+            location : "Mumbai",
+            cook : function(){
+                console.log(`${this.name} is cooks amazing food in ${this.location}`) ;
+            }
+        }
+        // define an object for anthony
+        const anthony =  {
+            name : "Anthony",
+            profession : "Magician",
+            location : "Kashmir",
+            magic : function(){
+                console.log(`${this.name} performs magic tricks in ${this.location}`) ;
+            }
+        }
+        // let them borrow eath other's skills using .call method
+        amar.sing.call(akbar) ;
+        akbar.cook.call(anthony);
+        anthony.magic.call(amar) ;
+    </script>
+</body>
+</html>
